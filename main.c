@@ -2,10 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Constante com o tamanho máximo de receitas e produtos
 #define TAM 100
 
-// Estrutura para armazenar uma receita
 typedef struct {
     char nome[100];
     char ingredientes[300];
@@ -13,7 +11,6 @@ typedef struct {
     char valorNutricional[100];
 } Receita;
 
-// Estrutura para armazenar um produto
 typedef struct {
     char nome[100];
     char descricao[200];
@@ -21,14 +18,13 @@ typedef struct {
     char beneficios[200];
 } Produto;
 
-// Função para cadastrar uma nova receita
 void cadastrarReceita(Receita receitas[], int *total) {
     if (*total >= TAM) {
         printf("Limite de receitas atingido.\n");
         return;
     }
 
-    getchar(); // Limpa o buffer do teclado
+    getchar(); 
     printf("\n--- Cadastrar Receita ---\n");
     printf("Nome da receita: ");
     fgets(receitas[*total].nome, sizeof(receitas[*total].nome), stdin);
@@ -46,7 +42,6 @@ void cadastrarReceita(Receita receitas[], int *total) {
     printf("Receita cadastrada com sucesso!\n");
 }
 
-// Função para mostrar todas as receitas cadastradas
 void listarReceitas(Receita receitas[], int total) {
     if (total == 0) {
         printf("Nenhuma receita cadastrada.\n");
@@ -63,14 +58,13 @@ void listarReceitas(Receita receitas[], int total) {
     }
 }
 
-// Função para cadastrar um novo produto
 void cadastrarProduto(Produto produtos[], int *total) {
     if (*total >= TAM) {
         printf("Limite de produtos atingido.\n");
         return;
     }
 
-    getchar(); // Limpa o buffer
+    getchar(); 
     printf("\n--- Cadastrar Produto ---\n");
     printf("Nome do produto: ");
     fgets(produtos[*total].nome, sizeof(produtos[*total].nome), stdin);
@@ -81,7 +75,7 @@ void cadastrarProduto(Produto produtos[], int *total) {
     printf("Preço (R$): ");
     scanf("%f", &produtos[*total].preco);
 
-    getchar(); // Limpa buffer
+    getchar(); 
     printf("Benefícios: ");
     fgets(produtos[*total].beneficios, sizeof(produtos[*total].beneficios), stdin);
 
@@ -89,7 +83,6 @@ void cadastrarProduto(Produto produtos[], int *total) {
     printf("Produto cadastrado com sucesso!\n");
 }
 
-// Função para mostrar todos os produtos cadastrados
 void listarProdutos(Produto produtos[], int total) {
     if (total == 0) {
         printf("Nenhum produto cadastrado.\n");
@@ -106,12 +99,11 @@ void listarProdutos(Produto produtos[], int total) {
     }
 }
 
-// Função para simular o envio de receita pelo leitor (sem salvar)
 void enviarReceitaLeitor() {
     char nome[100];
     char receita[500];
 
-    getchar(); // Limpa buffer
+    getchar(); 
     printf("\n--- Enviar Receita para o Blog ---\n");
     printf("Seu nome: ");
     fgets(nome, sizeof(nome), stdin);
@@ -123,7 +115,6 @@ void enviarReceitaLeitor() {
     printf("Receita enviada: %s\n", receita);
 }
 
-// Função principal com o menu
 int main() {
     Receita receitas[TAM];
     Produto produtos[TAM];
